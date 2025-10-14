@@ -1,0 +1,157 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - thank_you
+  - check_spending
+  - top_category
+  - compare_months
+  - saving_tips
+  - set_budget
+  - track_goal
+  - financial_advice
+  - motivation
+
+responses:
+  utter_greet:
+    - text: "Hey there 👋! I'm FinSense — your personal money tracker. How can I help you today?"
+    - text: "Hi! Ready to take control of your finances?"
+    - text: "Hey 👋, want to check your spending or get a saving tip?"
+
+  utter_goodbye:
+    - text: "Goodbye 👋! Keep saving smart!"
+    - text: "Bye! Stay financially strong 💪"
+    - text: "See you later — may your wallet always be happy 💰"
+
+  utter_thank_you:
+    - text: "You're most welcome 🙏"
+    - text: "Glad to help!"
+    - text: "Anytime! 😊"
+
+  utter_iamabot:
+    - text: "Yep, I’m FinSense AI 🤖 — your smart financial companion."
+
+  utter_check_spending:
+    - text: "Here's your total spending this month: ₹{spending_total}"
+    - text: "You’ve spent ₹{spending_total} this month 💸"
+    - text: "As of now, your total expenses are ₹{spending_total}."
+
+  utter_top_category:
+    - text: "You spent the most on {top_category} — ₹{category_amount} 🛒"
+    - text: "Your biggest expense this month is {top_category} for ₹{category_amount}."
+
+  utter_compare_months:
+    - text: "You spent ₹{month1_total} in {month1} and ₹{month2_total} in {month2}. The difference is ₹{diff}."
+    - text: "Your spending increased by ₹{diff} compared to last month."
+
+  utter_saving_tips:
+    - text: "💡 Tip: Track your small daily spends — they often add up more than you realize."
+    - text: "Try the 50/30/20 rule — 50% needs, 30% wants, 20% savings."
+    - text: "Set aside a small auto-transfer for savings right after you get paid!"
+
+  utter_set_budget:
+    - text: "Got it! I’ve set your budget for ₹{budget_amount} this month 🎯"
+    - text: "Okay! Your spending cap is ₹{budget_amount}. Let's stay on track!"
+
+  utter_track_goal:
+    - text: "You're {progress}% closer to your goal! Keep saving! 💪"
+    - text: "Nice! You've saved ₹{saved_amount} of your ₹{goal_amount} goal."
+
+  utter_financial_advice:
+    - text: "Consider investing a fixed portion of income regularly — consistency beats timing."
+    - text: "Avoid impulse purchases — use a 24-hour rule before buying."
+    - text: "Track your monthly recurring costs — you’ll find sneaky subscriptions draining money."
+
+  utter_motivation:
+    - text: "Every rupee saved is a step closer to freedom 💸"
+    - text: "Discipline with money is the real wealth 🔥"
+    - text: "You're doing great — even small savings compound over time 💪"
+
+  utter_default:
+    - text: "Hmm... I didn’t quite get that 🤔. Could you rephrase it?"
+
+slots:
+  spending_total:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+  top_category:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+  category_amount:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+  month1:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+  month2:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+  month1_total:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+  month2_total:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+  diff:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+  budget_amount:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+  goal_amount:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+  saved_amount:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+  progress:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+actions:
+  - action_smart_finance_advice

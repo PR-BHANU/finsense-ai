@@ -1,0 +1,70 @@
+version: "3.1"
+
+rules:
+  # --- BASIC SMALLTALK HANDLERS ---
+  - rule: Greet user
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  - rule: Say goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - rule: Respond to thanks
+    steps:
+      - intent: thank_you
+      - action: utter_thank_you
+
+  - rule: Respond when asked if bot
+    steps:
+      - intent: bot_challenge
+      - action: utter_iamabot
+
+  - rule: Motivate user
+    steps:
+      - intent: motivation
+      - action: utter_motivation
+
+  # --- SMART GENERATIVE ACTIONS (Handled by FinSense AI) ---
+  - rule: Smart saving tips
+    steps:
+      - intent: saving_tips
+      - action: action_smart_finance_advice
+
+  - rule: Smart financial advice
+    steps:
+      - intent: financial_advice
+      - action: action_smart_finance_advice
+
+  - rule: Smart spending summary
+    steps:
+      - intent: check_spending
+      - action: action_smart_finance_advice
+
+  - rule: Smart category insights
+    steps:
+      - intent: top_category
+      - action: action_smart_finance_advice
+
+  - rule: Smart month comparison
+    steps:
+      - intent: compare_months
+      - action: action_smart_finance_advice
+
+  - rule: Smart budget setting
+    steps:
+      - intent: set_budget
+      - action: action_smart_finance_advice
+
+  - rule: Smart goal tracking
+    steps:
+      - intent: track_goal
+      - action: action_smart_finance_advice
+
+  # --- FALLBACK & DEFAULT HANDLING ---
+  - rule: Default fallback if unsure
+    steps:
+      - intent: nlu_fallback
+      - action: action_smart_finance_advice

@@ -1,0 +1,157 @@
+version: "3.1"
+
+nlu:
+  - intent: greet
+    examples: |
+      - hey
+      - hello
+      - hi
+      - hello there
+      - good morning
+      - good evening
+      - hey there
+      - let's go
+      - yo
+      - sup
+      - hey dude
+      - what's up
+      - good afternoon
+
+  - intent: goodbye
+    examples: |
+      - bye
+      - goodbye
+      - see you later
+      - catch you soon
+      - take care
+      - have a great day
+      - bye bye
+      - see you around
+      - talk to you later
+
+  - intent: affirm
+    examples: |
+      - yes
+      - yeah
+      - absolutely
+      - indeed
+      - of course
+      - correct
+      - sounds good
+
+  - intent: deny
+    examples: |
+      - no
+      - nope
+      - not really
+      - never
+      - I don't think so
+      - don't like that
+
+  - intent: mood_great
+    examples: |
+      - perfect
+      - great
+      - amazing
+      - wonderful
+      - I'm feeling awesome
+      - super good
+      - excellent
+      - fantastic
+
+  - intent: mood_unhappy
+    examples: |
+      - I'm sad
+      - not good
+      - disappointed
+      - I feel low
+      - today was bad
+      - I’m unhappy
+      - I’m stressed about money
+      - feeling down
+
+  - intent: bot_challenge
+    examples: |
+      - are you a bot?
+      - are you human?
+      - am I talking to an AI?
+      - what are you?
+      - who created you?
+
+  - intent: thank_you
+    examples: |
+      - thank you
+      - thanks
+      - appreciate it
+      - thanks a lot
+      - cheers
+
+  - intent: check_spending
+    examples: |
+      - how much did I spend this month
+      - show my total spending
+      - what’s my total expense this month
+      - tell me my expenses for October
+      - total amount spent so far
+      - how much money have I used
+      - show me my expenses
+
+  - intent: top_category
+    examples: |
+      - what did I spend the most on
+      - show my top category
+      - where did I spend the most money
+      - biggest expense category
+      - which category has the highest spending
+      - where is most of my money going
+
+  - intent: compare_months
+    examples: |
+      - compare September and October spending
+      - how did my expenses change last month
+      - show month-to-month comparison
+      - spending difference between two months
+      - compare this month to last month
+      - how much more did I spend this time
+
+  - intent: saving_tips
+    examples: |
+      - give me a money saving tip
+      - how can I save more
+      - advice for better budgeting
+      - tips to manage my expenses
+      - how to reduce unnecessary expenses
+      - I want to save money
+      - help me spend smarter
+
+  - intent: set_budget
+    examples: |
+      - set a monthly budget of 5000
+      - my budget is 10000
+      - create a budget for this month
+      - limit my expenses to 2000
+      - I want to set a budget
+
+  - intent: track_goal
+    examples: |
+      - how much have I saved toward my goal
+      - show my savings progress
+      - how close am I to my goal
+      - track my financial goal
+      - how much more do I need to save
+
+  - intent: financial_advice
+    examples: |
+      - give me financial advice
+      - how to manage my salary better
+      - how to invest small amounts
+      - best way to use my income
+      - how to avoid overspending
+
+  - intent: motivation
+    examples: |
+      - motivate me to save
+      - give me some inspiration
+      - tell me something positive
+      - I need motivation to stay on track
+      - keep me disciplined financially
