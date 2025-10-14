@@ -10,7 +10,9 @@ services:
       pip install --upgrade pip setuptools wheel packaging
       pip install -r requirements.txt
       rasa train
-    startCommand: rasa run --enable-api --cors "*" --port $PORT
+    startCommand: |
+      rasa run actions --port 5055 &
+      rasa run --enable-api --cors "*" --port $PORT
     plan: free
     envVars:
       - key: PYTHON_VERSION
