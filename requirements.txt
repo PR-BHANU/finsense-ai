@@ -1,3 +1,10 @@
+# Core tools
+pip>=25.0
+setuptools>=70.0.0
+wheel>=0.42.0
+packaging>=24.0
+
+# Rasa and its components
 rasa==3.6.20
 rasa-sdk==3.6.2
 transformers>=4.44.0
