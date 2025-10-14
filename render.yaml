@@ -2,7 +2,14 @@ services:
   - type: web
     name: finsense-bot
     env: python
-    buildCommand: pip install -r requirements.txt && rasa train
+    buildCommand: |
+      apt-get update && apt-get install -y python3.10 python3.10-venv python3.10-distutils
+      update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 1
+      python3 -m venv venv
+      . venv/bin/activate
+      pip install --upgrade pip setuptools wheel packaging
+      pip install -r requirements.txt
+      rasa train
     startCommand: rasa run --enable-api --cors "*" --port 5000
     plan: free
     envVars:
