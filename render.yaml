@@ -19,8 +19,6 @@ services:
         value: 3.10.19
       - key: PORT
         value: 5000
-      - key: HUGGINGFACE_API_KEY
-        sync: false
 
   - type: web
     name: finsense-actions
