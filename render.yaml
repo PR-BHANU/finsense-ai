@@ -28,3 +28,6 @@ services:
     buildCommand: pip install -r requirements.txt
     startCommand: rasa run actions --port 5055
     plan: free
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.19
