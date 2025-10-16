@@ -1,19 +1,11 @@
-# Core packaging tools (avoid conflicts with Rasa)
 pip<24.1
 setuptools<70
 wheel<0.44
 packaging<24
 
-# Rasa core & SDK
 rasa==3.6.20
 rasa-sdk==3.6.2
-
-# NLP and AI components
 transformers>=4.33.0,<4.45.0
-torch>=2.0.0,<2.3.0  # 2.4+ breaks on Render's limited memory
+torch>=2.0.0,<2.4.0
 requests>=2.28.0,<3.0.0
-python-dotenv>=1.0.0,<2.0.0
-
-# Utility packages
-numpy<1.26
-tqdm>=4.60.0
+python-dotenv>=1.0.0
