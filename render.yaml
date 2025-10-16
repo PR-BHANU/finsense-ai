@@ -4,15 +4,15 @@ services:
     env: python
     plan: free
     buildCommand: |
+      apt-get update && apt-get install -y python3.10 python3.10-venv python3.10-distutils
+      python3 -m venv venv
       . venv/bin/activate
-      python health_server.py &
-      rasa run actions --port 5055 &
-      rasa run --enable-api --cors "*" --port 5005
+      pip install --upgrade pip setuptools wheel packaging
+      pip install -r requirements.txt
     startCommand: |
       . venv/bin/activate
-      rasa run actions --port 5055 &
-      rasa run --enable-api --cors "*" --port $PORT
+      python health_server.py
+    healthCheckPath: /
     envVars:
       - key: PYTHON_VERSION
         value: 3.10.19
-    healthCheckPath: /
