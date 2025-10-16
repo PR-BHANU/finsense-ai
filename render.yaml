@@ -12,10 +12,9 @@ services:
       rasa train
     startCommand: |
       . venv/bin/activate
-      # Start action server in background
       rasa run actions --port 5055 &
-      # Start Rasa HTTP API on dynamic Render port
       rasa run --enable-api --cors "*" --port $PORT
     envVars:
       - key: PYTHON_VERSION
         value: 3.10.19
+    healthCheckPath: /webhooks/rest/webhook
