@@ -1,7 +1,8 @@
 services:
   - type: web
-    name: finsense-bot
+    name: finsense-ai
     env: python
+    plan: free
     buildCommand: |
       apt-get update && apt-get install -y python3.10 python3.10-venv python3.10-distutils
       update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 1
@@ -11,21 +12,21 @@ services:
       pip install -r requirements.txt
       rasa train
     startCommand: |
-      rasa run actions --port 5055 &
       rasa run --enable-api --cors "*" --port $PORT
-    plan: free
     envVars:
       - key: PYTHON_VERSION
         value: 3.10.19
-      - key: PORT
-        value: 5000
+      - key: HUGGINGFACE_API_KEY
+        sync: false
 
-  - type: web
+  - type: worker
     name: finsense-actions
     env: python
+    plan: free
     buildCommand: pip install -r requirements.txt
     startCommand: rasa run actions --port 5055
-    plan: free
     envVars:
       - key: PYTHON_VERSION
         value: 3.10.19
+      - key: HUGGINGFACE_API_KEY
+        sync: false
