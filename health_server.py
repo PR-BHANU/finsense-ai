@@ -14,10 +14,11 @@ def run_health_server():
     server.serve_forever()
 
 if __name__ == "__main__":
-    # Run Rasa in the background
-    threading.Thread(target=lambda: subprocess.run([
-        "rasa", "run", "--enable-api", "--cors", "*", "--port", os.environ.get("PORT", "5005")
-    ])).start()
-
-    # Start the simple HTTP health endpoint
+    # Start Rasa in background
+    def run_rasa():
+        subprocess.run([
+            "rasa", "run", "--enable-api", "--cors", "*", "--port", os.environ.get("PORT", "5005")
+        ])
+    
+    threading.Thread(target=run_rasa, daemon=True).start()
     run_health_server()
