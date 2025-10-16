@@ -9,10 +9,13 @@ services:
       . venv/bin/activate
       pip install --upgrade pip setuptools wheel packaging
       pip install -r requirements.txt
+      rasa train
     startCommand: |
       . venv/bin/activate
-      python health_server.py
+      python server_launcher.py
     healthCheckPath: /
     envVars:
       - key: PYTHON_VERSION
         value: 3.10.19
+      - key: GROK_API_KEY
+        sync: false
